@@ -39,17 +39,7 @@ export default function Footer() {
               }}
               className="flex items-center gap-2 group w-fit"
             >
-              <div className="relative w-9 h-9 flex items-center justify-center border border-gold-accent bg-olive-dark/40 rounded-sm">
-                <span className="font-serif text-lg font-black text-gold-accent">38</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-stencil text-xl text-white tracking-widest leading-none">
-                  BARRACKS
-                </span>
-                <span className="text-[8px] text-gold-accent tracking-widest font-mono mt-0.5">
-                  MILITARY LUXURY OUTPOST
-                </span>
-              </div>
+              <img src="/fonts/logo/logo.jpg" alt="38 Barracks Logo" className="h-12 w-auto object-contain" />
             </a>
             
             <p className="text-[11px] text-gray-400 leading-relaxed font-light font-sans max-w-sm">

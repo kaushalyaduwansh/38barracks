@@ -40,11 +40,10 @@ export default function Header({ onOpenBooking, onOpenLoyalty, onOpenCorporate, 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
-          isScrolled
+        className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${isScrolled
             ? 'py-3 bg-night-black/90 backdrop-blur-md border-b border-gold-accent/20 shadow-[0_10px_30px_rgba(0,0,0,0.8)]'
             : 'py-5 bg-transparent border-b border-transparent'
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
@@ -57,18 +56,11 @@ export default function Header({ onOpenBooking, onOpenLoyalty, onOpenCorporate, 
               }}
               className="flex items-center gap-2 group"
             >
-              <div className="relative w-10 h-10 flex items-center justify-center border-2 border-gold-accent bg-olive-dark/40 rounded-sm">
-                <span className="font-serif text-2xl font-extrabold text-gold-accent tracking-tighter">38</span>
-                <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-cta-red rounded-full" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-stencil text-2xl text-white tracking-widest leading-none group-hover:text-gold-accent transition-colors">
-                  BARRACKS
-                </span>
-                <span className="text-[9px] text-gold-accent tracking-[0.25em] font-medium leading-none mt-1">
-                  CONNAUGHT PLACE
-                </span>
-              </div>
+              <img
+                src="/fonts/logo/logo.png"
+                alt="38 Barracks Logo"
+                className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-10' : 'h-12'}`}
+              />
             </a>
 
             {/* Desktop Navigation */}
@@ -83,11 +75,10 @@ export default function Header({ onOpenBooking, onOpenLoyalty, onOpenCorporate, 
                       e.preventDefault();
                       handleLinkClick(link.id);
                     }}
-                    className={`relative px-2.5 py-1.5 text-xs tracking-wider uppercase font-medium transition-all duration-300 ${
-                      isActive
+                    className={`relative px-2.5 py-1.5 text-xs tracking-wider uppercase font-medium transition-all duration-300 ${isActive
                         ? 'text-gold-accent font-semibold'
                         : 'text-gray-300 hover:text-white'
-                    }`}
+                      }`}
                   >
                     {link.name}
                     {isActive && (
@@ -117,7 +108,7 @@ export default function Header({ onOpenBooking, onOpenLoyalty, onOpenCorporate, 
 
               <button
                 onClick={onOpenBooking}
-                className="bg-gold-accent hover:bg-gold-accent/90 text-night-black font-semibold text-xs tracking-widest uppercase px-5 py-2.5 rounded-sm border border-gold-accent transition-all duration-300 hover:scale-105 shadow-[0_4px_20px_rgba(200,164,77,0.3)] cursor-pointer"
+                className="bg-[rgba(15,26,20,0.85)] hover:bg-[rgba(15,26,20,1)] text-gold-accent font-semibold text-xs tracking-widest uppercase px-5 py-2.5 rounded-sm border border-gold-accent/40 hover:border-gold-accent transition-all duration-300 hover:scale-105 shadow-[0_4px_20px_rgba(15,26,20,0.5)] cursor-pointer"
               >
                 Reserve Table
               </button>
@@ -127,7 +118,7 @@ export default function Header({ onOpenBooking, onOpenLoyalty, onOpenCorporate, 
             <div className="lg:hidden flex items-center gap-3">
               <button
                 onClick={onOpenBooking}
-                className="bg-gold-accent text-night-black font-bold text-[10px] tracking-wider uppercase px-3.5 py-2 rounded-sm"
+                className="bg-[rgba(15,26,20,0.85)] text-gold-accent font-bold text-[10px] tracking-wider uppercase px-3.5 py-2 rounded-sm border border-gold-accent/30"
               >
                 Book
               </button>
@@ -142,7 +133,7 @@ export default function Header({ onOpenBooking, onOpenLoyalty, onOpenCorporate, 
         </div>
       </header>
 
-      {/* Drawer Menu */}
+      {/* Full-Screen Drawer Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -150,50 +141,60 @@ export default function Header({ onOpenBooking, onOpenLoyalty, onOpenCorporate, 
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed top-[64px] left-0 w-full z-30 bg-night-black border-b border-gold-accent/20 shadow-2xl lg:hidden flex flex-col py-6 px-5 gap-4"
+            className="fixed inset-0 z-50 bg-night-black/95 backdrop-blur-md lg:hidden flex flex-col items-center justify-center py-6 px-5 gap-8 overflow-y-auto"
           >
-            <div className="grid grid-cols-2 gap-2">
+            {/* Close Button inside Overlay */}
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="absolute top-6 right-6 p-2 text-gold-accent border border-gold-accent/30 rounded-sm hover:bg-gold-accent/10"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            <img src="/fonts/logo/logo.png" alt="38 Barracks Logo" className="h-16 w-auto object-contain mb-4" />
+
+            <div className="flex flex-col items-center w-full max-w-xs gap-2">
               {menuLinks.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => handleLinkClick(link.id)}
-                  className="text-left py-2.5 px-3 rounded-sm border border-gold-accent/5 hover:border-gold-accent/30 text-xs text-gray-300 hover:text-white hover:bg-olive-dark/20 tracking-wider uppercase font-medium transition-all"
+                  className="w-full text-center py-3.5 px-3 rounded-sm border-b border-gold-accent/10 hover:border-gold-accent/40 text-lg font-serif text-gray-300 hover:text-gold-accent tracking-widest uppercase transition-all"
                 >
                   {link.name}
                 </button>
               ))}
             </div>
 
-            <div className="h-[1px] bg-gold-accent/10 my-1" />
+            <div className="w-16 h-[1px] bg-gold-accent/30 my-2" />
 
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-4 w-full max-w-xs">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenBooking();
                 }}
-                className="w-full bg-gold-accent text-night-black font-bold text-xs tracking-widest uppercase py-3 rounded-sm text-center"
+                className="w-full bg-[rgba(15,26,20,0.85)] border border-gold-accent/40 hover:bg-[rgba(15,26,20,1)] hover:border-gold-accent text-gold-accent font-bold text-sm tracking-widest uppercase py-4 rounded-sm text-center transition-all shadow-lg"
               >
                 Reserve Table
               </button>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-3">
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
                     onOpenCorporate();
                   }}
-                  className="w-full bg-olive-dark/80 text-gold-accent border border-gold-accent/30 font-bold text-[10px] tracking-widest uppercase py-2.5 rounded-sm text-center"
+                  className="w-full bg-[rgba(15,26,20,0.4)] text-gold-accent border border-gold-accent/30 hover:border-gold-accent font-bold text-[10px] tracking-widest uppercase py-3 rounded-sm text-center transition-all"
                 >
-                  Corporate Event
+                  Corporate
                 </button>
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
                     onOpenLoyalty();
                   }}
-                  className="w-full bg-night-black text-rose-500 border border-rose-500/30 font-bold text-[10px] tracking-widest uppercase py-2.5 rounded-sm text-center"
+                  className="w-full bg-night-black text-rose-500 border border-rose-500/30 hover:border-rose-500 font-bold text-[10px] tracking-widest uppercase py-3 rounded-sm text-center transition-all"
                 >
-                  30% OFF Club
+                  VIP Club
                 </button>
               </div>
             </div>
