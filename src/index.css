@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/* ── Gimme Danger – Bold Display / Title Font ── */
+@font-face {
+  font-family: 'Gimme Danger';
+  src: url('/fonts/Gimme Danger.ttf') format('truetype');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+  size-adjust: 70%;
+}
+
+/* ── Cellga – Elegant Body / Description Font ── */
+@font-face {
+  font-family: 'Cellga';
+  src: url('/fonts/Cellga-Regular.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cellga';
+  src: url('/fonts/Cellga-Italic.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@theme {
+  --color-olive-dark: #0F1A14;
+  --color-gold-accent: #C8A44D;
+  --color-cta-red: #B71C1C;
+  --color-glow-accent: #FF6A00;
+  --color-night-black: #0B0B0B;
+
+  --font-serif: 'Gimme Danger', 'Impact', 'Arial Black', sans-serif;
+  --font-stencil: 'Gimme Danger', 'Impact', 'Arial Black', sans-serif;
+  --font-sans: 'Cellga', 'Georgia', 'Times New Roman', serif;
+}
+
+/* Custom scrollbar and high-end styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0B0B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C8A44D;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6A00;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--color-night-black);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #F3F4F6;
+  overflow-x: hidden;
+  background: radial-gradient(circle at top right, #1a2b21, #0b0b0b) fixed;
+}
+
+/* Elite golden ambient glow and pulse animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.3;
+    filter: blur(80px);
+  }
+  50% {
+    opacity: 0.6;
+    filter: blur(100px);
+  }
+}
+
+.gold-glow {
+  background: radial-gradient(circle, rgba(200, 164, 77, 0.15) 0%, transparent 70%);
+  animation: pulseGlow 10s infinite ease-in-out;
+}
+
+.glow-orange {
+  background: radial-gradient(circle, rgba(255, 106, 0, 0.08) 0%, transparent 75%);
+  animation: pulseGlow 8s infinite ease-in-out alternate;
+}
+
+/* Luxury military pattern overlay */
+.military-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(200, 164, 77, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(200, 164, 77, 0.03) 1px, transparent 1px);
+}
+
+.glass-header {
+  background-color: rgba(11, 11, 11, 0.75);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(200, 164, 77, 0.15);
+}
+
+.stencil-text {
+  font-family: var(--font-stencil);
+  letter-spacing: 0.12em;
+  line-height: 1.15;
+}
+
+.luxury-heading {
+  font-family: var(--font-serif);
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+}
+

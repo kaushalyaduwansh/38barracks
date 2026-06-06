@@ -1,0 +1,6 @@
+{
+  "name": "38 Barracks",
+  "description": "Premium army-themed dining, nightlife, and celebration destination in Connaught Place, New Delhi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

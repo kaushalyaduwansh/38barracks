@@ -1,0 +1,4 @@
+{
+  "/api/instagram/route": "app/api/instagram/route.js",
+  "/page": "app/page.js"
+}
