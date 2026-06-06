@@ -23,12 +23,12 @@ export default function Footer() {
 
   return (
     <footer className="bg-night-black border-t border-gold-accent/20 relative z-10 pt-16 pb-8">
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        
+
         {/* Core footer branding & details */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-          
+
           {/* Logo & Narrative */}
           <div className="md:col-span-4 space-y-4">
             <a
@@ -39,9 +39,9 @@ export default function Footer() {
               }}
               className="flex items-center gap-2 group w-fit"
             >
-              <img src="/fonts/logo/logo.jpg" alt="38 Barracks Logo" className="h-12 w-auto object-contain" />
+              <img src="/fonts/logo/logo.png" alt="38 Barracks Logo" className="h-12 w-auto object-contain" />
             </a>
-            
+
             <p className="text-[11px] text-gray-400 leading-relaxed font-light font-sans max-w-sm">
               Connaught Place’s benchmark military fine dining, craft mixology, and high-energy nightlife enclave. Formulated in elite, Dubai-spirited dark cinematic styling.
             </p>
